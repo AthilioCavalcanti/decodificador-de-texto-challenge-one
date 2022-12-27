@@ -122,6 +122,7 @@ body {
   width: calc(100% - 32px);
   background-color: var(--light-blue-300);
   color: var(--dark-blue-300);
+  line-height: 120%;
   padding: 2.4rem;
   border: 1px solid var(--light-blue-500);
   border-radius: 1.2rem;
