@@ -85,4 +85,9 @@
   .container {
     gap: 8rem;
   }
+
+  .box-alert {
+    width: 120rem;
+    left: calc(50% - 60rem);
+  }
 }
