@@ -39,8 +39,3 @@ btnCopy.addEventListener('click', () => {
   const text = document.querySelector('div.text-output').innerText;
   navigator.clipboard.writeText(text);
 });
-
-
-// Adicionar função para verificar se a entrada é em letras minusculas e sem acentos
-// Estilizar para telas maiores (tablet, desktop, telas grades...)
-// 
