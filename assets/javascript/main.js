@@ -47,6 +47,10 @@ btnEncrypt.addEventListener('click', () => {
   if(isValidText) {
     output.innerHTML = `<div class="text-output">${encrypt(input.value)}</div>`;
     output.append(btnCopy);
+    if (btnCopy.disabled) {
+      btnCopy.innerText = 'Copiar';
+      btnCopy.disabled = false;
+    } 
   } else {
     const body = document.querySelector('body div.container');
     body.append(invalidTextAlertBox);
@@ -59,9 +63,15 @@ btnEncrypt.addEventListener('click', () => {
 btnDecrypt.addEventListener('click', () => {
   output.innerHTML = `<div class="text-output">${decrypt(input.value)}</div>`;
   output.append(btnCopy);
+  if (btnCopy.disabled) {
+    btnCopy.innerText = 'Copiar';
+    btnCopy.disabled = false;
+  } 
 });
 
 btnCopy.addEventListener('click', () => {
   const text = document.querySelector('div.text-output').innerText;
   navigator.clipboard.writeText(text);
+  btnCopy.innerText = 'Copiado!'
+  btnCopy.disabled = true;
 });

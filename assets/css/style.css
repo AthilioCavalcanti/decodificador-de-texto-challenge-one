@@ -74,6 +74,12 @@ body {
 .btn:hover {
   transform: scale(1.02);
 }
+.btn:disabled {
+  background-color: var(--light-blue-300);
+}
+.btn:disabled:hover {
+  transform: none;
+}
 
 .btn-encrypt {
   background-color: var(--dark-blue-300);
