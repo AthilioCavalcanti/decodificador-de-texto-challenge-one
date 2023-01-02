@@ -14,19 +14,19 @@ invalidTextAlertBox.classList.add('box-alert');
 
 const encrypt = (text) => {
   return text
-        .replaceAll('a', 'ai')
         .replaceAll('e', 'enter')
-        .replaceAll('i', 'imes')
         .replaceAll('o', 'ober')
+        .replaceAll('i', 'imes')
+        .replaceAll('a', 'ai')
         .replaceAll('u', 'ufat');
 };
 
 const decrypt = (text) => {
   return text
-        .replaceAll('ai', 'a')
         .replaceAll('enter', 'e')
-        .replaceAll('imes', 'i')
         .replaceAll('ober', 'o')
+        .replaceAll('imes', 'i')
+        .replaceAll('ai', 'a')
         .replaceAll('ufat', 'u');
 };
 
