@@ -44,7 +44,7 @@ const removeBoxAlert = () => {
 
 btnEncrypt.addEventListener('click', () => {
   const isValidText = validateText(input.value);
-  if(isValidText) {
+  if(input.value && isValidText) {
     output.innerHTML = `<div class="text-output">${encrypt(input.value)}</div>`;
     output.append(btnCopy);
     if (btnCopy.disabled) {
@@ -52,6 +52,9 @@ btnEncrypt.addEventListener('click', () => {
       btnCopy.disabled = false;
     } 
   } else {
+    if(removeBoxAlertIn10Seconds) {
+      clearTimeout(removeBoxAlertIn10Seconds);
+    }
     const body = document.querySelector('body div.container');
     body.append(invalidTextAlertBox);
     removeBoxAlertIn10Seconds = setTimeout(() => {
@@ -61,12 +64,24 @@ btnEncrypt.addEventListener('click', () => {
 });
 
 btnDecrypt.addEventListener('click', () => {
-  output.innerHTML = `<div class="text-output">${decrypt(input.value)}</div>`;
-  output.append(btnCopy);
-  if (btnCopy.disabled) {
-    btnCopy.innerText = 'Copiar';
-    btnCopy.disabled = false;
-  } 
+  const isValidText = validateText(input.value);
+  if(input.value && isValidText) {
+    output.innerHTML = `<div class="text-output">${decrypt(input.value)}</div>`;
+    output.append(btnCopy);
+    if (btnCopy.disabled) {
+      btnCopy.innerText = 'Copiar';
+      btnCopy.disabled = false;
+    }
+  } else {
+    if(removeBoxAlertIn10Seconds) {
+      clearTimeout(removeBoxAlertIn10Seconds);
+    }
+    const body = document.querySelector('body div.container');
+    body.append(invalidTextAlertBox);
+    removeBoxAlertIn10Seconds = setTimeout(() => {
+      document.querySelector('body div.container').removeChild(invalidTextAlertBox);
+    }, 10 * 1000);
+  }
 });
 
 btnCopy.addEventListener('click', () => {
